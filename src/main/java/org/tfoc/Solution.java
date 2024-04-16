@@ -1,6 +1,7 @@
 package org.tfoc;
 
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -8,9 +9,19 @@ import java.util.List;
  */
 public class Solution {
 
-    public List<String> letterCombinations(String digits) {
+    List<Integer> valList = new LinkedList();
 
-        return Collections.emptyList();
+    public boolean hasCycle(ListNode head) {
+
+        if(valList.contains(head.val)){
+            return true;
+        } else if (head.next == null){
+            return false;
+        } else{
+            valList.add(head.val);
+            return hasCycle(head.next);
+        }
+
     }
 
 }
